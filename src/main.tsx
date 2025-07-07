@@ -6,10 +6,20 @@ import App from './App.tsx'
 // Import router
 import { BrowserRouter } from 'react-router-dom';
 
+// Import Search Context
+import SearchProvider from './contexts/SearchContext.tsx';
+
+// Import Theme context
+import ThemeProvider from './contexts/ThemeContext.tsx';
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <ThemeProvider>
+        <SearchProvider>
+          <App />
+        </SearchProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </StrictMode>,
 )
