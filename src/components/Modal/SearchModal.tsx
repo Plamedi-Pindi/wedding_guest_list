@@ -11,10 +11,14 @@ import ModalBackground from './ModalBackground';
 // Import search context
 import { useSearch } from '../../contexts/SearchContext';
 
+// Import Theme context
+import {useTheme} from '../../contexts/ThemeContext';
+
 const SearchModal = () => {
     const modalBackRef = useRef<HTMLDivElement>(null);
     const [input, setInput] = useState('');
     const [isSearch, setIsSearch] = useSearch();
+    const [theme, ] = useTheme();
 
     useEffect(() => {
         if (!modalBackRef.current) return;
@@ -36,13 +40,13 @@ const SearchModal = () => {
         <ModalBackground ref={modalBackRef} onclick={() => setIsSearch(false)}>
             <div
                 onClick={(e) => e.stopPropagation()}
-                className={`w-[20rem] h-[12rem] bg-white relative top-24 rounded-xl shadow-sm`}
+                className={` ${theme === 'dark' && 'dark:bg-gray-800 '} w-[20rem] h-[12rem] bg-white relative top-24 rounded-xl shadow-sm`}
             >
                 <div className="border-b-[0.5px] border-gray-400 h-15 p-2 pl-4 pr-4 flex gap-2 items-center rounded-t-xl">
-                    <Search className='w-5.5 text-gray-600' />
+                    <Search className={`w-5.5 text-gray-600 ${theme === 'dark' && 'dark:text-gray-300'}`} />
                     <SearchInput value={input} onChange={(e) => setInput(e.target.value)} />
                     <button>
-                        <X onClick={() => setIsSearch(false)} className='w-5.5 text-gray-600' />
+                        <X onClick={() => setIsSearch(false)} className={`w-5.5 text-gray-600 ${theme === 'dark' && 'dark:text-gray-300'} `} />
                     </button>
                 </div>
             </div>
@@ -57,13 +61,14 @@ type searchInputType = {
     value: string
 }
 const SearchInput = ({ onChange, value }: searchInputType) => {
+     const [theme, ] = useTheme();
     return (
         <input
             onChange={onChange}
             value={value}
             type="text"
             placeholder='Pesquisar convidados...'
-            className="bg-white grow p-2 outline-none text-gray-700"
+            className={` ${theme === 'dark' && 'dark:bg-gray-800 ] dark:text-gray-300'} bg-white grow p-2 outline-none text-gray-700`}
         />
     )
 }

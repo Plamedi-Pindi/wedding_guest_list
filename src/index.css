@@ -8,11 +8,11 @@
     }
 }
 
-*{
-    @apply duration-400
+* {
+    @apply duration-400;
 }
 
 body {
     font-family: "DM Sans", sans-serif;
-
 }
+

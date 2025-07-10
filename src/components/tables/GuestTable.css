@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* 
+classe para o DataGrid
+
+Rodapé inteiro...........................	.MuiDataGrid-footerContainer
+Ícones da paginação......................	.MuiSvgIcon-root
+Seletor de número de linhas..............	.MuiTablePagination-select
+Texto do rodapé...........................	.MuiTablePagination-displayedRows
+cabeçalho das colunas.....................  .MuiDataGrid-columnHeaders
+estiliza as linhas da tabela.............   .MuiDataGrid-row
+Estiliza cada célula......................  .MuiDataGrid-cell
+*/
+
+.meu-datagrid .MuiTablePagination-toolbar {
+    @apply text-gray-200 ;
+}
+

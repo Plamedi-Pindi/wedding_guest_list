@@ -16,8 +16,3 @@ const UserDropdown = () => {
 
 export default UserDropdown
 
-const SearchModal = () => {
-    return (
-        <div></div>
-    )
-}
